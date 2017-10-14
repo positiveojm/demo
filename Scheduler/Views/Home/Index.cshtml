@@ -2,15 +2,17 @@
     ViewBag.Title = "Home Page";
 }
 @model IList<Scheduler.Models.Task>
-<p>
+    <div id="calendar">
+    <p>
 
-    @{ 
+        @{
 
-        var mymodel = Model;
-        var title = mymodel[0].Title;
-        var description = mymodel[0].Description;
+            var mymodel = Model;
+            var title = mymodel[0].Title;
+            var description = mymodel[0].Description;
 
-    }
-    title
-    description
-</p>
+        }
+        @title <br />
+        @description
+    </p>
+</div>
