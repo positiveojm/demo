@@ -11,6 +11,8 @@ namespace Scheduler.Models
     {   [Key]
         public int UserId { get; set; }
         public string Name { get; set; }
+        public string BackgroundColor { get; set; }
+        public string FontColor { get; set; }
     }
    
 }
