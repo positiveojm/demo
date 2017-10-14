@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Scheduler.Models;
 
 namespace Scheduler.Controllers
 {
@@ -10,9 +11,12 @@ namespace Scheduler.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            var dbContext = new Context();
+            List<Task> tasks = dbContext.Tasks.ToList();
 
+            return View(tasks);
+        }
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

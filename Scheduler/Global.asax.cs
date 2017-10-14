@@ -10,12 +10,19 @@ namespace Scheduler
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+
+            routes.MapRoute(
+                "Default",                                              // Route name
+                "{controller}/{action}",                           // URL with parameters
+                new { controller = "Home", action = "Index" }  // Parameter defaults
+            );
+        }
+
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            RegisterRoutes(RouteTable.Routes);
         }
     }
 }
