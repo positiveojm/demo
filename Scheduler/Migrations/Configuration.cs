@@ -10,7 +10,6 @@ namespace Scheduler.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "Scheduler.Models.Context";
         }
 
         protected override void Seed(Scheduler.Models.Context context)

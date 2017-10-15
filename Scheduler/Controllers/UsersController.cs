@@ -46,7 +46,7 @@ namespace Scheduler.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,Name")] User user)
+        public ActionResult Create([Bind(Include = "UserId,Name,BackgroundColor,FontColor")] User user)
         {
             if (ModelState.IsValid)
             {

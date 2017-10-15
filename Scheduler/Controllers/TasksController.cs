@@ -47,7 +47,7 @@ namespace Scheduler.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TaskId,Description,Title,DueDate,Status,UserId")] Task task)
+        public ActionResult Create([Bind(Include = "TaskId,Description,Title,DueDate,Status,UserId,UserName")] Task task)
         {
             if (ModelState.IsValid)
             {

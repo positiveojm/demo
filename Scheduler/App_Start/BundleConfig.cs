@@ -11,7 +11,8 @@ namespace Scheduler
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui.js",
-                        "~/Scripts/moment.js"
+                        "~/Scripts/moment.js",
+                        "~/Scripts/jquery.minicolors.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -36,7 +37,8 @@ namespace Scheduler
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/fullcalendar.css",
-                      "~/Content/jquery-ui.css"
+                      "~/Content/jquery-ui.css",
+                      "~/Content/jquery.minicolors.css"
                       ));
         }
     }

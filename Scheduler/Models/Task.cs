@@ -15,6 +15,7 @@ namespace Scheduler.Models
         public string Title { get; set; }
         public DateTime DueDate { get; set; }
         public bool Status { get; set; }
+        public int UserName { get; set; }
         public int UserId { get; set; }
     }
 }

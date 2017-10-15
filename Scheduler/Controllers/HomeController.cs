@@ -57,17 +57,17 @@ namespace Scheduler.Controllers
                 List<Task> taskList = userTaskMap[user];
                 foreach(var t in taskList)
                 {
-                    var calendarEvent = new CalendarEvent { Title = t.Title, Start = t.DueDate, End = t.DueDate, Color = user.BackgroundColor, TextColor = user.FontColor };
+                    var calendarEvent = new CalendarEvent { title = t.Title, start = t.DueDate, color = user.BackgroundColor, textcolor = user.FontColor, description = t.Description };
                     eventList.Add(calendarEvent);
                 }                
             }
             var result = GetJson(eventList);
-            return result;
+            return GetJson(eventList);
         }
         public string GetJson(List<CalendarEvent> tasks)
         {
-            string output = new JavaScriptSerializer().Serialize(tasks);
-            return output;
+            return new JavaScriptSerializer().Serialize(tasks);
+            
         }
     }
 }
