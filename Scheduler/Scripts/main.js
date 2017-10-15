@@ -6,10 +6,13 @@ $(document).ready(function () {
 
 });
 
+$("#modal").on("resize", function () {
+    alert("modal populated");
+});
 
-function bringModal() {
-    //$("#modal").
-}
+
+
+
 
 function initialize() {
     $.ajax({

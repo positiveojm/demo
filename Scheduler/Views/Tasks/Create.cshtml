@@ -68,6 +68,13 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+    $(function () {
+        $('#button').click(function () {
+            $('#myModal').modal();
+        });
+    });
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
