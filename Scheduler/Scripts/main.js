@@ -7,6 +7,10 @@ $(document).ready(function () {
 });
 
 
+function bringModal() {
+    //$("#modal").
+}
+
 function initialize() {
     $.ajax({
         method: "GET",

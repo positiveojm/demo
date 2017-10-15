@@ -39,7 +39,8 @@ namespace Scheduler.Controllers
         // GET: Tasks/Create
         public ActionResult Create()
         {
-            return View();
+             return PartialView("Create", new Task());
+
         }
 
         // POST: Tasks/Create

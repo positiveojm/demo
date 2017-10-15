@@ -12,7 +12,7 @@
         <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Create Schedule", "Create", "Tasks")</li>
+                    <li>@Ajax.ActionLink("Create Schedule","Create", "Tasks", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })</li>
                     <li>@Html.ActionLink("Create User", "Create", "Users")</li>
                 </ul>
             </div>
@@ -21,6 +21,7 @@
     <div class="workspace">
         @RenderBody()
     </div>
+    <div id="modal"></div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
