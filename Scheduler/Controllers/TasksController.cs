@@ -48,16 +48,16 @@ namespace Scheduler.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TaskId,Description,Title,DueDate,Status,UserId,UserName")] Task task)
+        public ActionResult Create([Bind(Include = "TaskId,Description,Title,DueDate,Status")] Task task)
         {
             if (ModelState.IsValid)
             {
                 db.Tasks.Add(task);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
-            return View(task);
+            return PartialView(task);
         }
 
         // GET: Tasks/Edit/5
@@ -72,7 +72,7 @@ namespace Scheduler.Controllers
             {
                 return HttpNotFound();
             }
-            return View(task);
+            return PartialView(task);
         }
 
         // POST: Tasks/Edit/5
@@ -80,13 +80,13 @@ namespace Scheduler.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TaskId,Description,Title,DueDate,Status,UserId")] Task task)
+        public ActionResult Edit([Bind(Include = "TaskId,Description,Title,DueDate,Status")] Task task)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(task).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             return View(task);
         }
@@ -114,7 +114,7 @@ namespace Scheduler.Controllers
             Task task = db.Tasks.Find(id);
             db.Tasks.Remove(task);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
         protected override void Dispose(bool disposing)
