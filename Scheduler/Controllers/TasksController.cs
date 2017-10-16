@@ -21,12 +21,7 @@ namespace Scheduler.Controllers
             return PartialView(db.Tasks.ToList());
         }
 
-        // GET: Tasks/Create
-        public ActionResult Create()
-        {             
-             return PartialView("Create", new Task());
-
-        }
+        
         public ActionResult CreateForDate(string month, string date, string year)
         {
             var fullDate = Convert.ToDateTime(month +'/'+ date +'/'+ year);
@@ -34,7 +29,25 @@ namespace Scheduler.Controllers
             task.DueDate = fullDate;
             return PartialView("Create", task);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateForDate([Bind(Include = "TaskId,Description,Title,DueDate,Status")] Task task)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Tasks.Add(task);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
 
+            return PartialView(task);
+        }
+        // GET: Tasks/Create
+        public ActionResult Create()
+        {
+            return PartialView("Create", new Task());
+
+        }
         // POST: Tasks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
