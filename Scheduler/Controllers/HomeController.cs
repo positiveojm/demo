@@ -10,9 +10,9 @@ namespace Scheduler.Controllers
 {
     public class HomeController : Controller
     {
+        private Context dbContext = new Context();
         public ActionResult Index()
         {
-            var dbContext = new Context();
             List<Task> tasks = dbContext.Tasks.ToList();
 
             return View(tasks);
@@ -32,34 +32,29 @@ namespace Scheduler.Controllers
             return View();
         }
 
-        public Dictionary<User, List<Task>> GetUserTasks()
-        {
-            var dbContext = new Context();
-            List<User> users = dbContext.Users.ToList();
-            var result = new Dictionary<User, List<Task>>();
+        //public Dictionary<User, List<Task>> GetUserTasks()
+        //{
+        //    var dbContext = new Context();
+        //    List<User> users = dbContext.Users.ToList();
+        //    var result = new Dictionary<User, List<Task>>();
 
-            foreach(var user in users)
-            {
-                var tasksForUser = dbContext.Tasks.Where(x => x.UserId == user.UserId).ToList();
-                result.Add(user, tasksForUser);                
-            }
+        //    foreach(var user in users)
+        //    {
+        //        var tasksForUser = dbContext.Tasks.Where(x => x.UserId == user.UserId).ToList();
+        //        result.Add(user, tasksForUser);                
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public string FetchData()
         {
-            Dictionary<User, List<Task>> userTaskMap = GetUserTasks();
 
             var eventList = new List<CalendarEvent>();
-            foreach(var user in userTaskMap.Keys)
+            foreach (Task t in dbContext.Tasks.ToList())
             {
-                List<Task> taskList = userTaskMap[user];
-                foreach(var t in taskList)
-                {
-                    var calendarEvent = new CalendarEvent { title = t.Title, start = t.DueDate, color = user.BackgroundColor, textcolor = user.FontColor, description = t.Description };
-                    eventList.Add(calendarEvent);
-                }                
+                var eachEvent = new CalendarEvent { title = t.Title, description = t.Description, start = t.DueDate, color = "lime green", textcolor = "yellow" };
+                eventList.Add(eachEvent);
             }
             var result = GetJson(eventList);
             return GetJson(eventList);

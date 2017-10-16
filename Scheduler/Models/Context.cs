@@ -20,7 +20,5 @@ namespace Scheduler.Models
         }
 
         public System.Data.Entity.DbSet<Scheduler.Models.Task> Tasks { get; set; }
-
-        public System.Data.Entity.DbSet<Scheduler.Models.User> Users { get; set; }
     }
 }

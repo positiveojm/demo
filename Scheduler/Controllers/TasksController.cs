@@ -38,16 +38,8 @@ namespace Scheduler.Controllers
 
         // GET: Tasks/Create
         public ActionResult Create()
-        {
-            var usersList = db.Users.ToList();
-            var map = new Dictionary<int, string>();
-            foreach(var user in usersList)
-            {
-                map.Add(user.UserId, user.Name);
-            }
-            var dashboard = new Dashboard { NameIdMap = map};
-            
-             return PartialView("Create", dashboard);
+        {             
+             return PartialView("Create", new Task());
 
         }
 
