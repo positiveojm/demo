@@ -3,27 +3,12 @@
     padding-bottom: 20px;
 }
 
-     /*#modal {
-         width: 600px !important;
-         margin: 30px auto !important;
-     }*/
-
-     .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+.fc-time{
+   display : none;
 }
-     /*.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}*/
-
+.fc-unthemed .fc-today {
+  background: #f7f57e !important;
+}
 
 
 /* Set padding to keep content from hitting the edges */

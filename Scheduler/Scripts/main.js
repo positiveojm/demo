@@ -29,7 +29,7 @@ function makeCalendar(data) {
         header: {
             left: "prev, next, today",
             center: "title",
-            right: ""//"month, agendaWeek"
+            right: "month"//"month, agendaWeek"
         },
         editable: true,
         selectable: true,

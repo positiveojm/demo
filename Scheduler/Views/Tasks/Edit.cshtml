@@ -62,6 +62,8 @@
 
 <div>
     @Ajax.ActionLink("Back to List", "Index", "Tasks", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })
+    @Ajax.ActionLink("Delete", "Delete", "Tasks", new { id = Model.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
+
 </div>
 
 @section Scripts {
