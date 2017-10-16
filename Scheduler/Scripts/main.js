@@ -6,20 +6,10 @@ $(document).ready(function () {
 
 });
 
-$("#modal").on("resize", function () {
-    alert("modal populated");
-});
-
 $("a").click(function(){
     $('#myModal').modal();
 
 })
-
-$(".userName").click(function (){
-    alert("what");
-})
-
-
 
 function initialize() {
     $.ajax({
@@ -28,26 +18,41 @@ function initialize() {
         success: onSuccess,
         dataType: "JSON"
     });
-
-
 }
 
 function onSuccess(data) {
-    console.log(data);
+    //console.log(data);
     makeCalendar(data);
 }
 function makeCalendar(data) {
     $('#calendar').fullCalendar({
         header: {
-            left: "prev, next today",
-            center: "title",
-            right: "month, agendaWeek"
+            left: "prev, next, today",
+            center: "title"
+            //right: "month, agendaWeek"
         },
         editable: true,
         selectable: true,
         eventClick: function (calEvent, jsEvent, view) {
-            alert("You clicked on eventid: " + calEvent.id + "\nAnd the title is: " + calEvent.title);
+        },
+        dayClick: function (date, jsEvent, view) {
+            debugger;
+            var dateString = date.format("MM/DD/YYYY");
+            console.log("you clicked");
+            $.ajax({
+                method: "GET",
+                url: "/Tasks/Create/"+dateString,
+                success: showModal
+            });
+
         },
         events: data
-    })
+    });
+}
+
+function showModal(event) {
+    debugger;
+    console.log(event);
+    $("#modal").html(event);
+    $("#myModal").modal();
 }

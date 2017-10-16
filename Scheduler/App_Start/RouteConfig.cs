@@ -12,10 +12,15 @@ namespace Scheduler
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.MapRoute(
-                "Default",                                              // Route name
-                "{controller}/{action}",                           // URL with parameters
-                new { controller = "Home", action = "Index" }  // Parameter defaults
+                "Default",                                              
+                "{controller}/{action}",                         
+                new { controller = "Home", action = "Index" }  
             );
+            routes.MapRoute(
+               "WithDate",                                         
+               "Tasks/Create/{month}/{date}/{year}",
+               new { controller = "Tasks", action = "CreateForDate"} 
+           );
         }
     }
 }

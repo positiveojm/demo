@@ -44,7 +44,6 @@
         </td>
         <td>
             @Ajax.ActionLink("Edit", "Edit", "Tasks", new { id = item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
-            @Ajax.ActionLink("Details", "Details", "Tasks", new { id = item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
             @Ajax.ActionLink("Delete", "Delete", "Tasks", new { id=item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
         </td>
     </tr>

@@ -21,26 +21,18 @@ namespace Scheduler.Controllers
             return PartialView(db.Tasks.ToList());
         }
 
-        // GET: Tasks/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Task task = db.Tasks.Find(id);
-            if (task == null)
-            {
-                return HttpNotFound();
-            }
-            return View(task);
-        }
-
         // GET: Tasks/Create
         public ActionResult Create()
         {             
              return PartialView("Create", new Task());
 
+        }
+        public ActionResult CreateForDate(string month, string date, string year)
+        {
+            var fullDate = Convert.ToDateTime(month +'/'+ date +'/'+ year);
+            var task = new Task();
+            task.DueDate = fullDate;
+            return PartialView("Create", task);
         }
 
         // POST: Tasks/Create
@@ -88,7 +80,7 @@ namespace Scheduler.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
-            return View(task);
+            return PartialView(task);
         }
 
         // GET: Tasks/Delete/5
@@ -103,7 +95,7 @@ namespace Scheduler.Controllers
             {
                 return HttpNotFound();
             }
-            return View(task);
+            return PartialView(task);
         }
 
         // POST: Tasks/Delete/5
