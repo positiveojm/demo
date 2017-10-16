@@ -46,7 +46,7 @@
     }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Ajax.ActionLink("Back to List", "Index", "Users", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })
 </div>
 
 @section Scripts {

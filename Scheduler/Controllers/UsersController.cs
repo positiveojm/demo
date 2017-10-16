@@ -17,7 +17,7 @@ namespace Scheduler.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return PartialView(db.Users.ToList());
         }
 
         // GET: Users/Details/5

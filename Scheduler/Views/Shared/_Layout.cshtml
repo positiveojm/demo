@@ -12,9 +12,10 @@
         <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Ajax.ActionLink("Create Schedule","Create", "Tasks", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })</li>
-                    <li>@Html.ActionLink("Create User", "Create", "Users")</li>
-                    <li><button id="button">Button</button></li>
+                    <li>@Ajax.ActionLink("Schedule","Create", "Tasks", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })</li>
+                    <li>@Ajax.ActionLink("User", "Create", "Users", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })</li>
+                    @*@Ajax.ActionLink("Remove this photo", "RemovePhoto", "Admin", new { Id = Model.filename }, new AjaxOptions { OnSuccess = "RemoveSuccess" }, new { @class = "Action Class" })*@
+                    <li><button class="modalButton">Button</button></li>
                 </ul>
             </div>
         </div>

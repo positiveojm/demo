@@ -10,7 +10,14 @@ $("#modal").on("resize", function () {
     alert("modal populated");
 });
 
+$("a").click(function(){
+    $('#myModal').modal();
 
+})
+
+$(".userName").click(function (){
+    alert("what");
+})
 
 
 

@@ -18,7 +18,7 @@ namespace Scheduler.Controllers
         // GET: Tasks
         public ActionResult Index()
         {
-            return View(db.Tasks.ToList());
+            return PartialView(db.Tasks.ToList());
         }
 
         // GET: Tasks/Details/5
@@ -39,7 +39,15 @@ namespace Scheduler.Controllers
         // GET: Tasks/Create
         public ActionResult Create()
         {
-             return PartialView("Create", new Task());
+            var usersList = db.Users.ToList();
+            var map = new Dictionary<int, string>();
+            foreach(var user in usersList)
+            {
+                map.Add(user.UserId, user.Name);
+            }
+            var dashboard = new Dashboard { NameIdMap = map};
+            
+             return PartialView("Create", dashboard);
 
         }
 
