@@ -21,6 +21,11 @@ namespace Scheduler
                "Tasks/Create/{month}/{date}/{year}",
                new { controller = "Tasks", action = "CreateForDate"} 
            );
+            routes.MapRoute(
+   "GetEdit",
+   "Tasks/Edit/{id}",
+   new { controller = "Tasks", action = "Edit" }
+);
         }
     }
 }

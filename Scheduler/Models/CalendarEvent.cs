@@ -13,5 +13,6 @@ namespace Scheduler.Models
         public string description { get; set; }
         public string color { get; set; }
         public string textcolor { get; set; }
+        public int taskid { get; set; } //not required by fullcalendar but need it to call Edit page
     }
 }

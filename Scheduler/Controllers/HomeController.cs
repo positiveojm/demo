@@ -53,7 +53,7 @@ namespace Scheduler.Controllers
             var eventList = new List<CalendarEvent>();
             foreach (Task t in dbContext.Tasks.ToList())
             {
-                var eachEvent = new CalendarEvent { title = t.Title, description = t.Description, start = t.DueDate, color = "lime green", textcolor = "yellow" };
+                var eachEvent = new CalendarEvent { title = t.Title, description = t.Description, start = t.DueDate, color = "lime green", textcolor = "yellow",taskid =t.TaskId };
                 eventList.Add(eachEvent);
             }
             var result = GetJson(eventList);

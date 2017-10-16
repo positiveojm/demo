@@ -57,3 +57,4 @@ C:\Practice\Scheduler\Scheduler\bin\EntityFramework.xml
 C:\Practice\Scheduler\Scheduler\bin\EntityFramework.SqlServer.xml
 C:\Practice\Scheduler\Scheduler\obj\Debug\Scheduler.Migrations.initial.resources
 C:\Practice\Scheduler\Scheduler\obj\Debug\Scheduler.csproj.GenerateResource.Cache
+C:\Practice\Scheduler\Scheduler\obj\Debug\Scheduler.Migrations.initial1.resources

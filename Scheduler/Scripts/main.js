@@ -28,15 +28,19 @@ function makeCalendar(data) {
     $('#calendar').fullCalendar({
         header: {
             left: "prev, next, today",
-            center: "title"
-            //right: "month, agendaWeek"
+            center: "title",
+            right: ""//"month, agendaWeek"
         },
         editable: true,
         selectable: true,
         eventClick: function (calEvent, jsEvent, view) {
+            $.ajax({
+                method: "GET",
+                url: "/Tasks/Edit/" + String(calEvent.taskid),
+                success: showModal
+            });
         },
         dayClick: function (date, jsEvent, view) {
-            debugger;
             var dateString = date.format("MM/DD/YYYY");
             console.log("you clicked");
             $.ajax({
