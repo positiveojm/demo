@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.DueDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                Done
             </th>
             <th></th>
         </tr>
@@ -48,7 +48,7 @@
                 </td>
                 <td>
                     @Ajax.ActionLink("Edit", "Edit", "Tasks", new { id = item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
-                    @Ajax.ActionLink("Delete", "Delete", "Tasks", new { id = item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
+                    | @Ajax.ActionLink("Delete", "Delete", "Tasks", new { id = item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
                 </td>
             </tr>
         }

@@ -9,7 +9,21 @@
 .fc-unthemed .fc-today {
   background: #f7f57e !important;
 }
-
+.fc-head{
+    background:#e1ecef !important;
+}
+.modal-header{
+    background-color:black;
+}
+.modal-title,.modal-header button.close{
+    color:ghostwhite;
+}
+.align-right{
+    float:right !important;
+}
+.workspace{
+    padding:1% 3% 0.3% 3%;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {

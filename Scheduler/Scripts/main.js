@@ -1,15 +1,10 @@
 ﻿
 $(document).ready(function () {
     initialize();
-    $("#backcolors").minicolors();
-    $("#fontcolors").minicolors();
-
+    //$("#backcolors").minicolors();
+    //$("#fontcolors").minicolors();
 });
 
-$("a").click(function(){
-    $('#myModal').modal();
-
-})
 
 function initialize() {
     $.ajax({
@@ -18,6 +13,11 @@ function initialize() {
         success: onSuccess,
         dataType: "JSON"
     });
+
+    $("a").click(function () {
+        $('#myModal').modal();
+
+    })
 }
 
 function onSuccess(data) {
@@ -26,10 +26,11 @@ function onSuccess(data) {
 }
 function makeCalendar(data) {
     $('#calendar').fullCalendar({
+        height:$(window).height()*0.95,
         header: {
-            left: "prev, next, today",
-            center: "title",
-            right: "month"//"month, agendaWeek"
+            left: "title",
+            //center: "",
+            right: "prev, next, today"
         },
         editable: true,
         selectable: true,

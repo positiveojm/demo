@@ -13,6 +13,7 @@ namespace Scheduler.Models
         public int TaskId { get; set; }
         public string Description { get; set; }
         public string Title { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DueDate { get; set; }
         public bool Status { get; set; }
     }

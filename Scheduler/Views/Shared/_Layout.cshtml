@@ -11,21 +11,21 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Refresh", "Index", "Home")</li>
+                <ul class="nav navbar-nav align-right">
                     <li>@Ajax.ActionLink("Schedule","Index", "Tasks", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="workspace">
-        @RenderBody()
+   
+        <div class="workspace">
+            @RenderBody()
         </div>
-    <!-- Modal -->
+
+    
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
-            <!-- Modal content-->
             <div class="modal-content">
                 <div id="modal">
                 </div>                
