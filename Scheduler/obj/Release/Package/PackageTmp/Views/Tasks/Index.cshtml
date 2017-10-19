@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Scheduler.Models.Task>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Index</h4>
+</div>
+<div class="modal-body">
+    <p>
+        @Ajax.ActionLink("Create New", "Create", "Tasks", new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace })
+    </p>
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                Done
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Ajax.ActionLink("Edit", "Edit", "Tasks", new { id = item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
+                    | @Ajax.ActionLink("Delete", "Delete", "Tasks", new { id = item.TaskId }, new AjaxOptions() { UpdateTargetId = "modal", InsertionMode = InsertionMode.Replace }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+    
+
+    
